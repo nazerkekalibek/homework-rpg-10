@@ -4,14 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Aggregate root for quests.
- *
- * The internal list is deliberately hidden. Clients must request a
- * QuestIterator instead of reaching into the aggregate's collection.
- */
 public class QuestLog {
-
     private final List<Quest> quests = new ArrayList<>();
 
     public void add(Quest quest) {
@@ -34,6 +27,9 @@ public class QuestLog {
 
     public QuestIterator priorityAtLeast(QuestPriority threshold) {
         return new PriorityQuestIterator(this, threshold);
+    }
+    public QuestIterator rewardSorted() {
+        return new RewardSortedQuestIterator(this);
     }
 
     List<Quest> snapshot() {
