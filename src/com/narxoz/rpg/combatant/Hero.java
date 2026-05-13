@@ -1,10 +1,6 @@
 package com.narxoz.rpg.combatant;
 
-/**
- * Represents a player-controlled hero participating in the war council.
- */
-public class Hero {
-
+public class Hero{
     private final String name;
     private int hp;
     private final int maxHp;
